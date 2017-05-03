@@ -31,6 +31,8 @@ Menu::Menu()
 	// Default header setting.
 	header = (LPTSTR)malloc(DEFAULT_TEXT_LENGTH * sizeof(TCHAR));
 	_tcscpy(header, _T("Console Menu"));
+	items = new std::vector<MenuItem*>();
+
 }
 
 Menu::Menu(LPCTSTR header) : Menu()
@@ -41,6 +43,7 @@ Menu::Menu(LPCTSTR header) : Menu()
 Menu::~Menu()
 {
 	free(header);
+	items->clear();
 }
 
 HRESULT Menu::SetHeader(LPCTSTR header)
